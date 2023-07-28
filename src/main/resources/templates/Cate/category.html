@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<div>
+		<form action="/createCategory" th:object="${category}" method="post">
+			<input type="text" th:field="*{name}" id="demo">
+			<button>Submit</button>
+		</form>
+
+		<table>
+			<thead>
+				<tr>
+					<th>Name</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="category : ${listcate}" th:object="${category.value}">
+					<td>[[*{name}]]</td>
+					<!-- <td>[[${category.key}]]	</td> -->
+					<td><a href="/category/${category.key}">Sua</a> </td>
+				</tr>
+				
+			</tbody>
+		</table>
+		</div>
+</body>
+</html>
